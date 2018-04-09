@@ -1,0 +1,19 @@
+{
+  "name": "trackr-lib",
+  "version": "0.0.0",
+  "description": "javascript library to track blockchain public keys",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/spacelephant/trackr-lib.git"
+  },
+  "author": "spacelephant",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/spacelephant/trackr-lib/issues"
+  },
+  "homepage": "https://github.com/spacelephant/trackr-lib#readme"
+}
