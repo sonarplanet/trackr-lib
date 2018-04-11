@@ -4,7 +4,7 @@
   "description": "javascript library to track blockchain public keys",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node test.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/spacelephant/trackr-lib/issues"
   },
-  "homepage": "https://github.com/spacelephant/trackr-lib#readme"
+  "homepage": "https://github.com/spacelephant/trackr-lib#readme",
+  "dependencies": {
+    "express": "^4.16.3",
+    "web3": "^1.0.0-beta.33"
+  }
 }
