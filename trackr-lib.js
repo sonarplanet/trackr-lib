@@ -19,8 +19,8 @@ exports.watch = (address,callback) => {
                 .then( block => {
                     for(var i in block.transactions ) {
                         let transaction = block.transactions[i]
-                        if( ( transaction.from != null && transaction.from.toLowerCase() === address )
-                            || ( transaction.to != null && transaction.to.toLowerCase() === address ) ){
+                        if( ( transaction.from != null && transaction.from.toLowerCase() === address.toLowerCase() )
+                            || ( transaction.to != null && transaction.to.toLowerCase() === address.toLowerCase() ) ){
                             callback(null,transaction.hash)
                         }
                     }
