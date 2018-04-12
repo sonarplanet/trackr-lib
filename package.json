@@ -2,7 +2,7 @@
   "name": "trackr-lib",
   "version": "0.0.0",
   "description": "javascript library to track blockchain public keys",
-  "main": "index.js",
+  "main": "trackr-lib.js",
   "scripts": {
     "test": "node test.js"
   },
