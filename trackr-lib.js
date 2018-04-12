@@ -2,7 +2,7 @@ var exports = module.exports = {}
 
 const Web3 = require('web3-eth')
 
-var web3 = new Web3(Web3.givenProvider || "ws://localhost:8546");
+var web3 = new Web3("ws://localhost:8546");
 
 /**
  * Listen new transactions and return its hash when address occurs in 'from' or 'to' property.
