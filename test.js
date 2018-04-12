@@ -13,6 +13,8 @@ app.listen(3000, function () {
 
   const addressToTrack = "0x40C76cf136c270c2F1053398f1718b3fFe2574c4".toLowerCase()
 
+  console.log("\ttrack : "+addressToTrack)
+
   trackr.watch(addressToTrack,(error,tx)=>{
     if( !error ) console.log("--> new tx ("+tx+") with "+addressToTrack)
     else console.log(error)
