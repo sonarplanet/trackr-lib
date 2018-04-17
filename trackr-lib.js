@@ -12,7 +12,9 @@ const Web3 = require('web3-eth')
  */
 exports.watch = (nodeUrl,address,callback) => {
 
-    new Web3(nodeUrl).subscribe('newBlockHeaders',(error,_)=> { if( error ) callback(error) })
+    var web3 = new Web3(nodeUrl)
+    
+    web3.subscribe('newBlockHeaders',(error,_)=> { if( error ) callback(error) })
         .on('data', (newBlock)=>{
             web3.getBlock(newBlock.hash,true)
                 .then( block => {
