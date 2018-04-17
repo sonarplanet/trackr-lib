@@ -6,7 +6,8 @@ import Web3 from 'web3'
  * Address matching is case insensitive.
  * @param {string} nodeUrl url of the Ethereum node to communicate with
  * @param {string} address an Ethereum address to watch
- * @param {function} callback function called when event occurs. First argument is error and second is transaction hash
+ * @param {function} newTxCallback function called when a new transaction related to address, appears on the blockchain
+ * @param {function} errorCallback function called when an error occurs
  */
 export function watch(
     nodeUrl:string,
