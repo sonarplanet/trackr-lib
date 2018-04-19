@@ -1,6 +1,7 @@
-const trackr = require('./trackr-lib')
+import * as trackr from '../trackr-lib'
 
-const express = require('express')
+import * as express from 'express'
+
 const app = express()
 
 app.listen(3000, ()=>{
@@ -13,9 +14,9 @@ app.listen(3000, ()=>{
 
   console.log("\ttrack : "+addressToTrack+ " from node @ "+nodeUrl)
 
-  trackr.watch(nodeUrl,addressToTrack,(error,tx)=>{
-    if( !error ) console.log("--> new tx ("+tx+") with "+addressToTrack)
-    else console.log(error)
-  })
+  trackr.watch(
+    nodeUrl,addressToTrack,
+    (tx)=> console.log("--> new tx ("+tx+") with "+addressToTrack),
+    (error)=>console.log("an error occurs : "+JSON.stringify(error)))
 
 })
