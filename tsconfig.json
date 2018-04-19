@@ -2,9 +2,12 @@
   "compilerOptions": {
     "target": "ES2015",                          
     "module": "commonjs",                     
-    "strict": true,                           
-    "esModuleInterop": true,                   
-    "outDir": "dist",
+    "strict": true,                            
+    "outDir": "./dist",
     "sourceMap": true
-  }
+  },
+  "include": [
+    "./node_modules/web3-typescript-typings/index.d.ts",
+    "./src/**/*.ts"
+  ]
 }
