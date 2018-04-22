@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/spacelephant/trackr-lib.git"
+    "url": "git+https://github.com/sonarplanet/trackr-lib.git"
   },
-  "author": "spacelephant",
+  "author": "sonarplanet",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/spacelephant/trackr-lib/issues"
+    "url": "https://github.com/sonarplanet/trackr-lib/issues"
   },
-  "homepage": "https://github.com/spacelephant/trackr-lib#readme",
+  "homepage": "https://github.com/sonarplanet/trackr-lib#readme",
   "dependencies": {
     "@types/express": "^4.11.1",
     "@types/underscore": "^1.8.8",
