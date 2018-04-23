@@ -8,7 +8,7 @@ app.listen(3000, ()=>{
 
   console.log("*** Start trackr ***")
 
-  const nodeUrl = "ws://localhost:8546"
+  const nodeUrl = "wss://sonarplanet-eth-node.cleverapps.io/"
 
   const addressToTrack = "0x40C76cf136c270c2F1053398f1718b3fFe2574c4"
 
