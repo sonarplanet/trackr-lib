@@ -19,11 +19,9 @@ export function watch(
 
     web3.subscribe('newBlockHeaders')
         .on('data', (blockHeader:any)=>{
-
             web3.getBlock(blockHeader.number,true)
                 .then( (block:any) => {
-                    for(var i in block.transactions ) {
-                        let transaction = block.transactions[i]
+                    for(let transaction of block.transactions ) {
                         if( ( transaction.from != null && transaction.from.toLowerCase() === address.toLowerCase() )
                             || ( transaction.to != null && transaction.to.toLowerCase() === address.toLowerCase() ) ){
                                 newTxCallback(transaction.hash)
@@ -31,7 +29,7 @@ export function watch(
                     }
                 })
             })
-            
+
         .on('error',errorCallback)
         
 }
