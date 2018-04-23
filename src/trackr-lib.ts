@@ -1,4 +1,4 @@
-import Web3 from 'web3'
+const Web3 = require('web3')
 
 /**
  * Listen new transactions and return its hash when address occurs in 'from' or 'to' property.
@@ -18,24 +18,20 @@ export function watch(
     var web3 = new Web3(nodeUrl).eth
 
     web3.subscribe('newBlockHeaders')
-        .then( subscription => {
+        .on('data', (blockHeader:any)=>{
 
-            subscription.on('data', (blockHeader)=>{
-
-                web3.getBlock(blockHeader.number,true)
-                    .then( block => {
-                        for(var i in block.transactions ) {
-                            let transaction = block.transactions[i]
-                            if( ( transaction.from != null && transaction.from.toLowerCase() === address.toLowerCase() )
-                                || ( transaction.to != null && transaction.to.toLowerCase() === address.toLowerCase() ) ){
-                                    newTxCallback(transaction.hash)
-                            }
+            web3.getBlock(blockHeader.number,true)
+                .then( (block:any) => {
+                    for(var i in block.transactions ) {
+                        let transaction = block.transactions[i]
+                        if( ( transaction.from != null && transaction.from.toLowerCase() === address.toLowerCase() )
+                            || ( transaction.to != null && transaction.to.toLowerCase() === address.toLowerCase() ) ){
+                                newTxCallback(transaction.hash)
                         }
-                    })
+                    }
+                })
             })
-
-            subscription.on('error',errorCallback)
-
-        })
+            
+        .on('error',errorCallback)
         
 }
