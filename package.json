@@ -2,9 +2,13 @@
   "name": "trackr-lib",
   "version": "0.0.0",
   "description": "javascript library to track blockchain public keys",
-  "main": "trackr-lib.js",
+  "main": "./src/trackr-lib.ts",
   "scripts": {
-    "test": "node test.js"
+    "build": "./node_modules/.bin/tsc",
+    "dev": "nodemon ./dist/test/test.js",
+    "test": "node ./dist/test/test.js",
+    "clean": "rm -rf ./dist",
+    "cleanAll": "rm -rf ./dist ./node_modules"
   },
   "repository": {
     "type": "git",
@@ -23,6 +27,7 @@
   },
   "devDependencies": {
     "express": "^4.16.3",
-    "web3-typescript-typings": "^0.10.2"
+    "nodemon": "^1.17.3",
+    "typescript": "^2.8.1"
   }
 }
