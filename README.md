@@ -13,6 +13,8 @@ The node from which library is fetching data is configurable. You can only commu
 
 ```javascript
 
+import * as trackr from 'trackr-lib'
+
 trackr.watch(
     "ws://localhost:8546", /* Ethereum node url */
     "0x40C76cf136c270c2F1053398f1718b3fFe2574c4", /* Ethereum pub-key */
@@ -36,3 +38,13 @@ It does :
 
 Feel free to update the `src/test/test.ts` file to fit your needs (set ethereum node address and pub-key to track).
 
+## How to build
+
+1. `yarn install`
+2. `yarn build`
+3. `yarn test`
+
+
+Remove built files : `yarn clean`
+
+Remove built files AND `node_modules` : `yarn cleanAll`
