@@ -5,7 +5,6 @@
   "main": "./src/trackr-lib.ts",
   "scripts": {
     "build": "./node_modules/.bin/tsc",
-    "dev": "nodemon ./dist/test/test.js",
     "test": "node ./dist/test/test.js",
     "clean": "rm -rf ./dist",
     "cleanAll": "rm -rf ./dist ./node_modules"
