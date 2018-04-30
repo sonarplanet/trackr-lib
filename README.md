@@ -9,6 +9,21 @@ Trackr-lib is a javascript library to track Ethereum address.
 
 The node from which library is fetching data is configurable. You can only communicate through websocket due to dependency limitation.
 
+
+## How to install
+
+Trackr-lib is available on our github public repo.
+
+```bash
+yarn add sonarplanet/trackr-lib#publish
+```
+
+```bash
+npm install sonarplanet/trackr-lib#publish
+```
+
+N.B: If you don't specify `#publish` branch, you will get the dev package.
+
 ## How to use
 
 ```javascript
@@ -25,24 +40,11 @@ trackr.watch(
 
 The Ethereum node fetching data is given as first parameter and identified as follow : `ws://<IP_MACHINE>:<PORT>`. 
 
-### Test 
-
-A sample is availble in `./test.js`. 
-
-It does : 
-
-* instanciate an express webserver 
-* call `tracker.watch` and wait for events (print them in console).
-* connect to a local node (`127.0.0.1`) on default port (`8546`).
-* track `0x40C76cf136c270c2F1053398f1718b3fFe2574c4` public key.
-
-Feel free to update the `src/test/test.ts` file to fit your needs (set ethereum node address and pub-key to track).
-
 ## How to build
 
-1. `yarn install`
+1. `yarn`
 2. `yarn build`
-3. `yarn test`
+3. `yarn test` 
 
 
 Remove built files : `yarn clean`

@@ -1,0 +1,23 @@
+language: node_js
+cache:
+  yarn: true
+  directories:
+  - node_modules
+notifications:
+  email: false
+node_js:
+  - '9'
+
+branches:
+  except:
+    - publish
+
+script:
+  - yarn test:prod && yarn build
+
+deploy:
+  - provider: script
+    script: bash .travis/deploy.sh
+    skip-cleanup: true
+    on: 
+      branch: master
