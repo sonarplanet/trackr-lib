@@ -14,7 +14,7 @@
     "url": "git+https://github.com/sonarplanet/trackr-lib.git"
   },
   "author": "sonarplanet",
-  "license": "ISC",
+  "license": "APL 2.0",
   "bugs": {
     "url": "https://github.com/sonarplanet/trackr-lib/issues"
   },
