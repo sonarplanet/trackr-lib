@@ -1,3 +1,5 @@
+/// <reference types="jest" />
+
 import * as Utilities from "../src/utilities";
 
 describe("test addressesAreEquals function", () => {
