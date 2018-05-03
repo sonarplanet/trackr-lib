@@ -1,5 +1,3 @@
-import { describe, it } from "mocha";
-import { expect } from "chai";
 import * as Utilities from "../src/utilities";
 
 describe("test addressesAreEquals function", () => {
@@ -9,21 +7,21 @@ describe("test addressesAreEquals function", () => {
         "0x612d7a97affc491e814a7d64638511280a1b395243626d0a94e34cf8cc495e7d",
         "0x612d7a97affc491e814a7d64638511280a1b395243626d0a94e34cf8cc495e7d"
       )
-    ).true;
+    ).toBeTruthy();
 
     expect(
       Utilities.addressesAreEquals(
         "0x612D7A97AFFc491e814a7d64638511280a1b395243626d0a94e34cf8cc495e7d",
         "0x612d7a97affc491e814a7d64638511280a1b395243626d0a94e34cf8cc495e7d"
       )
-    ).true;
+    ).toBeTruthy();
 
     expect(
       Utilities.addressesAreEquals(
         "0x612D7A97AFFc491e814a7d64638511280",
         "0x612d7a97affc491e814a7d64638511280a1b395243626d0a94e34cf8cc495e7d"
       )
-    ).false;
+    ).toBeFalsy();
   });
 });
 
@@ -59,7 +57,7 @@ describe("test findAddressInBlock function", () => {
       ]
     };
 
-    expect(Utilities.findAddressInBlock(addressToFind, block)).deep.equal([
+    expect(Utilities.findAddressInBlock(addressToFind, block)).toEqual([
       "1",
       "2"
     ]);
