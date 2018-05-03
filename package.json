@@ -4,41 +4,36 @@
   "description": "javascript library to track blockchain public keys",
   "main": "./dist/trackr-lib.js",
   "types": "./dist/trackr-lib.d.ts",
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "./node_modules/.bin/tsc",
     "test": "jest",
     "test:watch": "jest --watch",
-    "test:prod": "./node_modules/.bin/yarn run lint && npm run test -- --coverage --no-cache",
+    "test:prod":
+      "./node_modules/.bin/yarn run lint && npm run test -- --coverage --no-cache",
     "clean": "rm -rf ./dist",
     "cleanAll": "rm -rf ./dist ./node_modules",
-    "pretty": "prettier --write --no-semi --single-quote \"{src,test}/**/*.ts\"",
+    "pretty":
+      "prettier --write --no-semi --single-quote \"{src,test}/**/*.ts\"",
     "lint": "tslint -t codeFrame 'src/**/*.ts' 'test/**/*.ts'"
   },
   "jest": {
     "transform": {
       ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
     },
-    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js"
-    ],
-    "coveragePathIgnorePatterns": [
-      "/node_modules/",
-      "/test/"
-    ],
-    "collectCoverage": true
+    "testRegex": "(/test/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+    "moduleFileExtensions": ["ts", "tsx", "js"],
+    "coveragePathIgnorePatterns": ["/node_modules/", "/test/"],
+    "collectCoverage": true,
+    "collectCoverageFrom": ["src/**/*.{ts,js,tsx,jsx}"]
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sonarplanet/trackr-lib.git"
   },
-  "author": "Guillaume Nicolas <guillaume.nicolas@spacelephant.org> http://spacelephant.org#guillaume",
+  "author":
+    "Guillaume Nicolas <guillaume.nicolas@spacelephant.org> http://spacelephant.org#guillaume",
   "license": "Apache-2.0",
   "engines": {
     "node": "<10.0.0"
