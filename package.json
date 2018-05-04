@@ -10,13 +10,13 @@
     "build": "./node_modules/.bin/tsc",
     "test": "jest",
     "test:watch": "jest --watch",
-    "test:prod":
-      "./node_modules/.bin/yarn run lint && npm run test -- --coverage --no-cache",
-    "clean": "rm -rf ./dist",
-    "cleanAll": "rm -rf ./dist ./node_modules",
+    "test:prod": "yarn test --coverage --no-cache",
     "pretty":
-      "prettier --write --no-semi --single-quote \"{src,test}/**/*.ts\"",
-    "lint": "tslint -t codeFrame 'src/**/*.ts' 'test/**/*.ts'"
+      "prettier --config ./prettier.config.js \"{src,test}/**/*.ts\"",
+    "prettify": "yarn pretty --write",
+    "lint": "tslint -c ./tslint.json -t codeFrame \"{src,test}/**/*.ts\"",
+    "clean": "rm -rf ./dist",
+    "cleanAll": "rm -rf ./dist ./node_modules"
   },
   "jest": {
     "transform": {
@@ -36,7 +36,7 @@
     "Guillaume Nicolas <guillaume.nicolas@spacelephant.org> http://spacelephant.org#guillaume",
   "license": "Apache-2.0",
   "engines": {
-    "node": "<10.0.0"
+    "node": "8.0"
   },
   "bugs": {
     "url": "https://github.com/sonarplanet/trackr-lib/issues"
