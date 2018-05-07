@@ -1,5 +1,5 @@
-const Web3 = require("web3");
-import * as Utilities from "./utilities";
+const Web3 = require('web3');
+import * as Utilities from './utilities';
 
 /**
  * Listen new transactions and return its hash when address occurs in 'from' or 'to' property.
@@ -14,18 +14,22 @@ export function watch(
   nodeUrl: string,
   address: string,
   newTxCallback: (tx: string) => void,
-  errorCallback: (error: Error) => void
+  errorCallback: (error: Error) => void,
 ): void {
   const web3 = new Web3(nodeUrl).eth;
 
+  // This filter check '.to' and '.from' address from 'transaction'
+  let filterTransactionsUsingAddress = Utilities.filterTransactionsUsingAddress(address);
+
+  let applyOnFilteredBlockTransactions = Utilities.applyOnFilteredBlockTransactions(
+    filterTransactionsUsingAddress,
+    newTxCallback,
+  );
+
   web3
-    .subscribe("newBlockHeaders")
-    .on("data", (blockHeader: any) => {
-      web3.getBlock(blockHeader.number, true).then((block: any) => {
-        Utilities.findAddressInBlock(address, block).forEach(
-          (transactionHash: string) => newTxCallback(transactionHash)
-        );
-      });
+    .subscribe('newBlockHeaders')
+    .on('data', (blockHeader: any) => {
+      web3.getBlock(blockHeader.number, true).then(applyOnFilteredBlockTransactions);
     })
-    .on("error", errorCallback);
+    .on('error', errorCallback);
 }
