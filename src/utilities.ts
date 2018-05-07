@@ -3,10 +3,12 @@
  * @param address1 the first address to test
  * @param address2 the second address to test
  */
-export function addressesAreEquals(address1: string, address2: string) {
-  return (
-    address1 && address2 && address1.toLowerCase() === address2.toLowerCase()
-  );
+export function addressesAreEquals(address1: string, address2: string): boolean {
+  let result = false;
+  if (address1 && address2) {
+    result = address1.toLowerCase() === address2.toLowerCase();
+  }
+  return result;
 }
 
 /**
