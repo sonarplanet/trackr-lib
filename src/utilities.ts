@@ -19,14 +19,9 @@ export function addressesAreEquals(address1: string, address2: string): boolean 
  * @returns {string[]} an array containing all matching transactions hash
  */
 export function findAddressInBlock(address: string, block: any): string[] {
-  let ret: string[] = [];
-  block.transactions
+  return block.transactions
     .filter((transaction: any) => {
-      return (
-        addressesAreEquals(transaction.from, address) ||
-        addressesAreEquals(transaction.to, address)
-      );
+      return addressesAreEquals(transaction.from, address) || addressesAreEquals(transaction.to, address);
     })
-    .forEach((transaction: any) => ret.push(transaction.hash));
-  return ret;
+    .map((transaction: any) => transaction.hash);
 }
